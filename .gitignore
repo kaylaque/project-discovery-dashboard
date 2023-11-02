@@ -1,1 +1,2 @@
-virtualenv
+virtualenv/
+.ipynb_checkpoints

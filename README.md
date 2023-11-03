@@ -32,3 +32,5 @@ Activate pre-commit by:
 ```bash
 pre-commit
 ```
+
+Google Colaboratory notes (data viz): https://colab.research.google.com/drive/1O6zHdq1NvdNuM-UcIzns9Kid71uYKZQZ?usp=sharing 

@@ -92,6 +92,27 @@ def extract_each_row(row, year):
         application,
     )
 
+def get_members(url):
+    # url = 'https://old.igem.org/Team.cgi?team_id=4769' #2023
+    r = requests.get(url)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    team = []
+    for i in range(len(soup.findAll('table', id = 'table_roster'))):
+        roster = str(soup.findAll('table', id = 'table_roster')[i]).split('<b>')
+        for i in roster:
+            soup2 = BeautifulSoup(i.replace('\n', ''), 'html.parser')
+            if soup2.td.td is not None:
+                sub_roster = str(soup2.td).split('<!-- Non-editable Member')
+                if len(sub_roster) > 1:
+                    for i in sub_roster:
+                        soup3 = BeautifulSoup(i.replace('\n', ''), 'html.parser')
+                        if soup3.td.td.get_text() is not None and str(soup3.td.td.get_text()) != '':
+                            # print(soup3.td.td.get_text())
+                            team.append(soup3.td.td.get_text())
+                else:
+                    # print(soup2.td.td.get_text())
+                    team.append(soup2.td.td.get_text())
+    return(team)
 
 def get_title_abstract(url):
     logging.info("Getting title abstract...")
@@ -116,6 +137,7 @@ def main(start_year, end_year, outfile):
     years = []
     titles = []
     abstracts = []
+    team_members = []
     year_range = list(range(start_year, end_year + 1))
 
     for year in year_range:
@@ -140,9 +162,11 @@ def main(start_year, end_year, outfile):
             ) = extract_each_row(all[i], year)
             teams.append(team_name)
             links.append(link_team)
-            title, abs = get_title_abstract(link_team)
+            title, abstract = get_title_abstract(link_team)
+            members = get_members(link_team)
             titles.append(title)
-            abstracts.append(abs)
+            abstracts.append(abstract)
+            team_members.append(members)
             wikis.append(wiki_url)
             regions.append(region)
             countries.append(country)

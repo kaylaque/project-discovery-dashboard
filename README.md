@@ -1,5 +1,5 @@
 # project-discovery-dashboard
- iGEM project discovery over time exploration
+ iGEM project discovery and parts registry exploration
 
 # Installation
 Use mamba/conda to install the environments:

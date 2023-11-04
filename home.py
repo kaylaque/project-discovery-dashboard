@@ -1,6 +1,6 @@
 import duckdb
 import streamlit as st
-
+import streamlit.components.v1 as components
 
 db = "duck.db"
 destination_table_name = "igem_parts_registry.parts"
@@ -27,3 +27,10 @@ if __name__ == "__main__":
 
     st.write("## Parts Table")
     st.dataframe(data.head(10), height=300)
+
+
+
+    st.write("## Query network example")
+    HtmlFile = open("figures/BBa_K3085004_subgraph.html", 'r', encoding='utf-8')
+    source_code = HtmlFile.read() 
+    components.html(source_code, height = 600)

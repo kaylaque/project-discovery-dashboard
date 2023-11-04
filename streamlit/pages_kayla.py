@@ -150,30 +150,32 @@ def wordcloud(dff, kolom, stopwords, title) :
   plt.show()
   # return(all_text, word_counts_raw)
 
-df = get_df('processed_team_list.csv')
-#TIME SERIES YEARLY
-# Plot yearly plot for tracks 1 and 2
-condition = df[~df['Track'].isna()]['Track'].unique()
-yearly_plot_multi(df, 'Year', 'Tracks', condition, 'Track', (30, 10))
+try:
+    df = get_df('processed_team_list.csv')
+    #TIME SERIES YEARLY
+    # Plot yearly plot for tracks 1 and 2
+    condition = df[~df['Track'].isna()]['Track'].unique()
+    yearly_plot_multi(df, 'Year', 'Tracks', condition, 'Track', (30, 10))
 
-# Plot yearly plot for region 1 and 2
-condition = df[~df['Region'].isna()]['Region'].unique()
-yearly_plot_multi(df, 'Year', 'Regions', condition, 'Region', (10, 5))
+    # Plot yearly plot for region 1 and 2
+    condition = df[~df['Region'].isna()]['Region'].unique()
+    yearly_plot_multi(df, 'Year', 'Regions', condition, 'Region', (10, 5))
 
-# Plot yearly plot for kind 1 and 2
-condition = df[~df['Kind'].isna()]['Kind'].unique()
-yearly_plot_multi(df, 'Year', 'Kind', condition, 'Kind', (10, 5))
+    # Plot yearly plot for kind 1 and 2
+    condition = df[~df['Kind'].isna()]['Kind'].unique()
+    yearly_plot_multi(df, 'Year', 'Kind', condition, 'Kind', (10, 5))
 
-yearly_plot(df, 'Year', 'Teams Applicants')
+    yearly_plot(df, 'Year', 'Teams Applicants')
 
-#BARPLOT
-barplot(df[df['Year']==2023], 'Country', '2023 Country', (40, 10))
+    #BARPLOT
+    barplot(df[df['Year']==2023], 'Country', '2023 Country', (40, 10))
 
-barplot(df[df['Year']==2023], 'Track', '2023 Track', (20, 5))
+    barplot(df[df['Year']==2023], 'Track', '2023 Track', (20, 5))
 
-barplot(df[df['Year']==2023], 'Kind', '2023 Kind', (10, 5))
+    barplot(df[df['Year']==2023], 'Kind', '2023 Kind', (10, 5))
 
-df['Track'] = df['Track'].astype(str)
-#WORDCLOUD
-get_circle(df, 'Keywords', 'General Keywords')
-wordcloud(df, 'Keyword_merged', stopwords, 'wordcloud-general')
+    df['Track'] = df['Track'].astype(str)
+    #WORDCLOUD
+    # get_circle(df, 'Keywords', 'General Keywords')
+
+    wordcloud(df, 'Keyword_merged', stopwords, 'wordcloud-general')

@@ -28,10 +28,16 @@ wget -P data/raw https://zenodo.org/records/10067040/files/igem_parts_registry.s
 ```
 
 ## Notebooks
-- To explore the parts registry database, use: [03_duckdb_parts.ipynb](notebooks/03_duckdb_parts.ipynb)
+There are several notebooks provided to explore both the wiki and parts registry.
+You can run Jupyter with `jupyterlab` and explore the notebooks located in the `notebooks` folder
 
 ## Streamlit
 - Download the duckdb file to `data/processed`
+```bash
+mkdir -p "data/processed"
+wget -P data/raw https://zenodo.org/records/10071080/files/duck.db
+
+```
 - Run streamlit with: `streamlit run home.py `
 
 # Development

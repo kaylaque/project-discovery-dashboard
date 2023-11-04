@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "30686", "label": "30686", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "57575", "label": "57575", "shape": "dot", "size": 10}, {"color": "#97c2fc", "id": "7249", "label": "7249", "shape": "dot", "size": 10}]);
-                  edges = new vis.DataSet([{"from": "30686", "relation": "composed_by", "to": "30686", "width": 1}, {"from": "30686", "relation": "composed_by", "to": "57575", "width": 1}, {"from": "57575", "relation": "composed_by", "to": "7249", "width": 1}, {"from": "7249", "relation": "composed_by", "to": "7249", "width": 1}]);
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "id": "30686", "label": "BBa_K1033925", "shape": "dot", "size": 10, "title": "spisPink, pink chromoprotein (incl RBS)\u003cbr\u003eThis chromoprotein from the coral \r\nStylophora pistillata, spisPink, naturally exhibits color when expressed.\u003cbr\u003eReporter\u003cbr\u003eErik Lundin"}, {"color": "#97c2fc", "id": "57575", "label": "BBa_K3085004", "shape": "dot", "size": 10, "title": "spisPink chromoprotein (incl. RBS, J23106)\u003cbr\u003ePink chromoprotein with a constitutive promoter.\u003cbr\u003eComposite\u003cbr\u003eRyan Summers"}, {"color": "#97c2fc", "id": "7249", "label": "BBa_J23106", "shape": "dot", "size": 10, "title": "constitutive promoter family member\u003cbr\u003eLater\u003cbr\u003eRegulatory\u003cbr\u003eJohn Anderson"}]);
+                  edges = new vis.DataSet([{"from": "30686", "label": "composed_by", "relation": "composed_by", "to": "30686", "width": 1}, {"from": "30686", "label": "composed_by", "relation": "composed_by", "to": "57575", "width": 1}, {"from": "57575", "label": "composed_by", "relation": "composed_by", "to": "7249", "width": 1}, {"from": "7249", "label": "composed_by", "relation": "composed_by", "to": "7249", "width": 1}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });
